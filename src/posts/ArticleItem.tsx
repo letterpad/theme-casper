@@ -1,0 +1,81 @@
+import React, { Component } from "react";
+
+import { Article } from "./ArticleItem.css";
+import LazyImage from "../../../../helpers/LazyImage";
+import { Link } from "react-router-dom";
+import { Post } from "../../../../../__generated__/gqlTypes";
+
+interface IArticleItem {
+  post: Post;
+}
+
+class ArticleItem extends Component<IArticleItem> {
+  render() {
+    const { post } = this.props;
+
+    return (
+      <Article className="post-card post">
+        <Link className="post-card-image-link" to={post.slug}>
+          <div
+            className="post-card-image"
+            style={{
+              backgroundImage: `url(${post.cover_image.src})`,
+            }}
+          ></div>
+        </Link>
+        <div className="post-card-content">
+          <div className="post-card-content-top">
+            <span className="post-card-category">
+              {post.categories.map(item => (
+                <Link className="category" to={item.slug}>
+                  {item.name}
+                </Link>
+              ))}
+            </span>
+            <Link className="post-card-content-link" to={post.slug}>
+              <header className="post-card-header">
+                <h2 className="post-card-title">{post.title}</h2>
+              </header>
+              <section className="post-card-excerpt">
+                <p>{post.excerpt}</p>
+              </section>
+            </Link>
+          </div>
+          <footer className="post-card-meta">
+            <div>
+              <img
+                className="author-profile-image"
+                src={post.author.avatar}
+                alt="Author"
+              />
+              <span className="post-card-author">
+                {post.author.fname} {post.author.lname}
+              </span>
+            </div>
+            <div>
+              <TimeIcon />
+              <span className="post-card-readtime">
+                {post.reading_time.replace("read", "")}
+              </span>
+            </div>
+          </footer>
+        </div>
+      </Article>
+    );
+  }
+}
+
+export default ArticleItem;
+
+export const TimeIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+    <path
+      className="cls-1"
+      d="M16,5A11,11,0,1,0,27,16,11,11,0,0,0,16,5Zm0,20a9,9,0,1,1,9-9A9,9,0,0,1,16,25Z"
+    />
+    <polygon
+      className="cls-1"
+      points="15 15 9.33 15 9.33 17 17 17 17 8.83 15 8.83 15 15"
+    />
+  </svg>
+);

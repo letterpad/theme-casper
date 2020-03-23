@@ -1,0 +1,7 @@
+{
+  "name": "casper",
+  "version": "1.0.0",
+  "description": "Casper Theme for Letterpad",
+  "author": "Abhishek Saha",
+  "main": "dist/index.js"
+}
