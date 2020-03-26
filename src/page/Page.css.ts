@@ -18,6 +18,10 @@ export const StyledPost = styled.div`
         font-size: 1.4rem;
         font-weight: 600;
         text-transform: uppercase;
+        @media (max-width: 500px) {
+          font-size: 1.2rem;
+          line-height: 1.3em;
+        }
         .post-full-meta-date {
           color: #3eb0ef;
         }
@@ -25,6 +29,9 @@ export const StyledPost = styled.div`
       .post-full-title {
         margin: 0;
         color: #090a0b;
+        @media (max-width: 500px) {
+          font-size: 2.9rem;
+        }
       }
     }
 
@@ -34,16 +41,20 @@ export const StyledPost = styled.div`
       background: #c5d2d9 50%;
       background-size: cover;
       border-radius: 5px;
+      @media (max-width: 1170px) {
+        margin: 0 -4vw -100px;
+        height: 600px;
+        border-radius: 0;
+      }
+      @media (max-width: 800px) {
+        height: 400px;
+      }
+      @media (max-width: 500px) {
+        margin-bottom: 4vw;
+        height: 350px;
+      }
     }
     .post-full-content {
-      position: relative;
-      margin: 0 auto;
-      padding: 70px 100px 0;
-      min-height: 230px;
-      font-family: Georgia, serif;
-      font-size: 2.2rem;
-      line-height: 1.6em;
-      background: #fff;
     }
     .post-full-footer {
       -ms-flex-pack: justify;

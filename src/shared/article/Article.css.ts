@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const StyledTags = styled.div`
   display: inline;
+  word-break: break-all;
   a {
     border: 1px solid #ddd;
     font-size: 1.3rem;

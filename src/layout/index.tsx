@@ -1,12 +1,10 @@
 require("../../public/css/style.css");
 require("../../public/css/typography.css");
 
-import { Footer, Main } from "./Layout.css";
+import { Container, Footer, Main } from "./Layout.css";
 
-import { Grid } from "./Grid.css";
 import Header from "./Header";
 import { ILayoutProps } from "../../../../types";
-import { Link } from "react-router-dom";
 import { PrismCss } from "../../public/css/Prism.css";
 import React from "react";
 
@@ -16,7 +14,7 @@ const Layout: React.ComponentType<ILayoutProps> = props => {
   const { site_footer, subscribe_embed } = settings;
   const headerWithBanner = props.contentType === "posts";
   return (
-    <Grid>
+    <Container>
       <PrismCss />
       <Header
         router={router}
@@ -67,7 +65,7 @@ const Layout: React.ComponentType<ILayoutProps> = props => {
           </nav>
         </div>
       </Footer>
-    </Grid>
+    </Container>
   );
 };
 

@@ -1,5 +1,10 @@
 import styled from "styled-components";
 
+export const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+`;
 interface IHeaderProps {
   bg?: string;
 }
@@ -11,13 +16,61 @@ export const StyledHeader = styled.header<IHeaderProps>`
   color: #fff;
   background-size: cover;
 
+  &:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 10;
+    display: block;
+  }
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 10;
+    display: block;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.18);
+  }
+
+  &:after {
+    bottom: auto;
+    height: 80px;
+    background: linear-gradient(rgba(0, 0, 0, 0.1), transparent);
+  }
+
+  .site-header-content {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -ms-flex-align: center;
+    align-items: center;
+    padding: 10vw 4vw;
+    min-height: 200px;
+    max-height: 450px;
+    text-align: center;
+  }
+
   .site-title {
     z-index: 10;
     margin: 0;
-    padding: 10px 0px;
+    padding: 0;
     font-size: 3.8rem;
     font-weight: 700;
   }
+
+  .site-logo {
+    max-height: 45px;
+  }
+
   .site-description {
     z-index: 10;
     margin: 0;
@@ -26,6 +79,17 @@ export const StyledHeader = styled.header<IHeaderProps>`
     font-weight: 300;
     letter-spacing: 0.5px;
     opacity: 0.8;
+  }
+
+  @media (min-width: 900px) {
+    .home-template .site-nav {
+      position: relative;
+      top: -70px;
+    }
+  }
+  @media (max-width: 700px) {
+    padding-right: 0;
+    padding-left: 0;
   }
 `;
 
@@ -42,6 +106,8 @@ export const Navigation = styled.nav<INavProps>`
   align-items: baseline;
   height: 40px;
   font-size: 1.2rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   @media (min-width: 900px) {
     position: relative;
 
@@ -57,6 +123,17 @@ export const Navigation = styled.nav<INavProps>`
     ${p => (!p.displayInlineLogo ? `padding-bottom: 80px;` : "")}
     letter-spacing: 0.4px;
     white-space: nowrap;
+    &::-webkit-scrollbar {
+      width: 1px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: transparent;
+    }
     @media (max-width: 700px) {
       margin-right: 0;
       padding-left: 4vw;

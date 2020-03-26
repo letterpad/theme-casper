@@ -1,19 +1,14 @@
 import { createGlobalStyle } from "styled-components";
 export const PrismCss = createGlobalStyle`
+   @import "https://fonts.googleapis.com/css?family=IBM+Plex+Mono:400,500&display=swap";
    
-    .prism-dark {
-        /* background: rgb(46, 51, 68);
-        color: #fff; */
-        font-family: "Operator Mono", "Fira Code", Consolas, Monaco, "Andale Mono",
-            monospace;
-    }
 
 	code[class*="language-"],
 pre[class*="language-"] {
 	color: #f8f8f2;
 	background: none;
 	text-shadow: 0 1px rgba(0, 0, 0, 0.3);
-	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	font-family: 'IBM Plex Mono', monospace;
 	text-align: left;
 	white-space: pre;
 	word-spacing: normal;

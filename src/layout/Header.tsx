@@ -16,7 +16,7 @@ const Header: React.FC<TypeHeader> = ({ settings, headerWithBanner }) => {
 
   const displayInlineLogo = !headerWithBanner;
   return (
-    <StyledHeader bg={banner.src}>
+    <StyledHeader bg={banner.src} className="site-header outer">
       <div className="inner">
         {headerWithBanner && (
           <HeaderContent className="site-header-content">
@@ -52,9 +52,13 @@ const Header: React.FC<TypeHeader> = ({ settings, headerWithBanner }) => {
               {parsedMenu.map((item, i) => {
                 return (
                   <li className="" key={i} role="menuitem">
-                    <Link to={i === 0 ? "/" : item.slug} className="normal">
-                      {i === 0 ? "Home" : item.title}
-                    </Link>
+                    {item.type === "custom" ? (
+                      <a href={item.slug}>{item.title}</a>
+                    ) : (
+                      <Link to={i === 0 ? "/" : item.slug} className="normal">
+                        {item.title}
+                      </Link>
+                    )}
                   </li>
                 );
               })}
