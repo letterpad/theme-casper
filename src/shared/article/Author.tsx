@@ -22,7 +22,7 @@ const Author: React.FC<IProps> = ({ post }) => {
               {post.author.fname} {post.author.lname}
             </a>
           </h4>
-          <p>${post.author.bio}</p>
+          <p>{post.author.bio}</p>
         </section>
       </section>
     </Container>

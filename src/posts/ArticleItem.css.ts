@@ -60,6 +60,7 @@ export const Article = styled.article`
       justify-content: space-between;
       > div {
         display: flex;
+        justify-content: center;
         svg {
           width: 20px;
         }

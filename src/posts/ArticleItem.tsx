@@ -25,13 +25,6 @@ class ArticleItem extends Component<IArticleItem> {
         </Link>
         <div className="post-card-content">
           <div className="post-card-content-top">
-            <span className="post-card-category">
-              {post.categories.map(item => (
-                <Link className="category" to={item.slug}>
-                  {item.name}
-                </Link>
-              ))}
-            </span>
             <Link className="post-card-content-link" to={post.slug}>
               <header className="post-card-header">
                 <h2 className="post-card-title">{post.title}</h2>
@@ -53,7 +46,9 @@ class ArticleItem extends Component<IArticleItem> {
               </span>
             </div>
             <div>
-              <TimeIcon />
+              <span>
+                <TimeIcon />
+              </span>
               <span className="post-card-readtime">
                 {post.reading_time.replace("read", "")}
               </span>

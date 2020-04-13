@@ -1,5 +1,4 @@
 import styled from "styled-components";
-
 export const StyledPost = styled.div`
   .post-full {
     position: relative;
@@ -54,8 +53,7 @@ export const StyledPost = styled.div`
         height: 350px;
       }
     }
-    .post-full-content {
-    }
+
     .post-full-footer {
       -ms-flex-pack: justify;
       justify-content: space-between;

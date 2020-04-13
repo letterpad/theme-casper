@@ -44,8 +44,8 @@ const Post: IThemeContainer["Post"] = ({
     observer.observe(sentinalEl);
   }, [post.id]);
 
-  const displayAuthor = settings.displayAuthorInfo.value == "true";
-  const disqusShortname = settings.disqus_id.value;
+  const displayAuthor = settings.displayAuthorInfo == "true";
+  const disqusShortname = settings.disqus_id;
   const disqusConfig = {
     url: post.slug,
     identifier: post.id.toString(),
@@ -58,10 +58,10 @@ const Post: IThemeContainer["Post"] = ({
         <div>
           <div className="floating-header-logo">
             <a href="https://eueung.github.io/">
-              {settings.site_logo.value ? (
-                <img src={settings.site_logo.value} alt={post.title} />
+              {settings.site_logo.src ? (
+                <img src={settings.site_logo.src} alt={post.title} />
               ) : (
-                settings.site_title.value
+                settings.site_title
               )}
             </a>
           </div>

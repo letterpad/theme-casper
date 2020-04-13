@@ -110,7 +110,6 @@ export const Navigation = styled.nav<INavProps>`
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   @media (min-width: 900px) {
     position: relative;
-
     ${p => (!p.displayInlineLogo ? `top: -70px;` : "")}
   }
 

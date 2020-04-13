@@ -10,9 +10,7 @@ interface IHeaderProps {
 type TypeHeader = Pick<ILayoutProps, "settings" | "router"> & IHeaderProps;
 
 const Header: React.FC<TypeHeader> = ({ settings, headerWithBanner }) => {
-  const banner = JSON.parse(settings.banner.value);
-  const logo = settings.site_logo.value;
-  const parsedMenu = JSON.parse(settings.menu.value);
+  const { banner, site_logo, menu } = settings;
 
   const displayInlineLogo = !headerWithBanner;
   return (
@@ -21,19 +19,17 @@ const Header: React.FC<TypeHeader> = ({ settings, headerWithBanner }) => {
         {headerWithBanner && (
           <HeaderContent className="site-header-content">
             <h1 className="site-title">
-              {logo ? (
+              {site_logo.src ? (
                 <img
                   className="site-logo"
-                  src={logo}
-                  alt={settings.site_title.value}
+                  src={site_logo.src}
+                  alt={settings.site_title}
                 />
               ) : (
-                settings.site_title.value
+                settings.site_title
               )}
             </h1>
-            <h2 className="site-description">
-              {settings.site_description.value}
-            </h2>
+            <h2 className="site-description">{settings.site_description}</h2>
           </HeaderContent>
         )}
 
@@ -41,22 +37,22 @@ const Header: React.FC<TypeHeader> = ({ settings, headerWithBanner }) => {
           <div className="site-nav-left">
             {displayInlineLogo && (
               <Link className="site-nav-logo" to="/">
-                {logo ? (
-                  <img src={logo} alt={settings.site_title.value} />
+                {site_logo.src ? (
+                  <img src={site_logo.src} alt={settings.site_title} />
                 ) : (
-                  settings.site_title.value
+                  settings.site_title
                 )}
               </Link>
             )}
             <ul className="nav" role="menu">
-              {parsedMenu.map((item, i) => {
+              {menu.map((item, i) => {
                 return (
                   <li className="" key={i} role="menuitem">
                     {item.type === "custom" ? (
-                      <a href={item.slug}>{item.title}</a>
+                      <a href={item.slug}>{item.label}</a>
                     ) : (
                       <Link to={i === 0 ? "/" : item.slug} className="normal">
-                        {item.title}
+                        {item.label}
                       </Link>
                     )}
                   </li>
@@ -67,10 +63,10 @@ const Header: React.FC<TypeHeader> = ({ settings, headerWithBanner }) => {
 
           <div className="site-nav-right">
             <div className="social-links">
-              {settings.social_facebook.value && (
+              {settings.social_facebook && (
                 <a
                   className="social-link social-link-fb"
-                  href={settings.social_facebook.value}
+                  href={settings.social_facebook}
                   target="_blank"
                   rel="noopener"
                 >
@@ -78,10 +74,10 @@ const Header: React.FC<TypeHeader> = ({ settings, headerWithBanner }) => {
                 </a>
               )}
 
-              {settings.social_twitter.value && (
+              {settings.social_twitter && (
                 <a
                   className="social-link social-link-tw"
-                  href={settings.social_twitter.value}
+                  href={settings.social_twitter}
                   target="_blank"
                   rel="noopener"
                 >
@@ -89,10 +85,10 @@ const Header: React.FC<TypeHeader> = ({ settings, headerWithBanner }) => {
                 </a>
               )}
 
-              {settings.social_github.value && (
+              {settings.social_github && (
                 <a
                   className="social-link"
-                  href={settings.social_github.value}
+                  href={settings.social_github}
                   target="_blank"
                   rel="noopener"
                 >

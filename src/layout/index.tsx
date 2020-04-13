@@ -11,10 +11,9 @@ import React from "react";
 const Layout: React.ComponentType<ILayoutProps> = props => {
   const { Content, settings, router, ...rest } = props;
 
-  const { site_footer, subscribe_embed } = settings;
   const headerWithBanner = props.contentType === "posts";
   return (
-    <Container>
+    <Container className="theme-casper">
       <PrismCss />
       <Header
         router={router}
@@ -28,37 +27,25 @@ const Layout: React.ComponentType<ILayoutProps> = props => {
       <Footer className="site-footer outer">
         <div className="site-footer-content inner">
           <section className="copyright">
-            <SetDangerousHTML html={settings.site_footer.value} />
+            <SetDangerousHTML html={settings.site_footer} />
           </section>
           <SetDangerousHTML
-            html={settings.subscribe_embed.value}
+            html={settings.subscribe_embed}
             className="subscribe"
           />
           <nav className="site-footer-nav">
-            {settings.social_facebook.value && (
-              <a
-                href={settings.social_facebook.value}
-                target="_blank"
-                rel="noopener"
-              >
+            {settings.social_facebook && (
+              <a href={settings.social_facebook} target="_blank" rel="noopener">
                 Facebook
               </a>
             )}
-            {settings.social_twitter.value && (
-              <a
-                href={settings.social_twitter.value}
-                target="_blank"
-                rel="noopener"
-              >
+            {settings.social_twitter && (
+              <a href={settings.social_twitter} target="_blank" rel="noopener">
                 Twitter
               </a>
             )}
-            {settings.social_github.value && (
-              <a
-                href={settings.social_github.value}
-                target="_blank"
-                rel="noopener"
-              >
+            {settings.social_github && (
+              <a href={settings.social_github} target="_blank" rel="noopener">
                 Github
               </a>
             )}
