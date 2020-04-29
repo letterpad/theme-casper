@@ -1,14 +1,17 @@
-import { Post, TaxonomyTypes } from "../../../../../../__generated__/gqlTypes";
+import {
+  Post,
+  Setting,
+  TaxonomyTypes,
+} from "../../../../../../__generated__/gqlTypes";
 import React, { Component } from "react";
 
 import { IHelpers } from "../../../../../helperProps";
 import { Link } from "react-router-dom";
 import { StyledTags } from "./Article.css";
-import { TypeSettings } from "../../../../../types";
 
 interface IContent {
   post: Post;
-  settings: TypeSettings;
+  settings: Setting;
   adjacentPosts?: any;
   helpers: IHelpers;
 }

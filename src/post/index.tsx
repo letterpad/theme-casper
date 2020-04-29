@@ -26,6 +26,7 @@ const Post: IThemeContainer["Post"] = ({
   useEffect(() => {
     const sentinalEl = document.querySelector(".post-full-header");
     const headerEl = document.querySelector(".floating-header");
+    if (!headerEl || !sentinalEl) return;
     const handler = entries => {
       // entries is an array of observed dom nodes
       // we're only interested in the first one at [0]

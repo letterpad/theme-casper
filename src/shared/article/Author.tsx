@@ -18,9 +18,7 @@ const Author: React.FC<IProps> = ({ post }) => {
         )}
         <section className="author-card-content">
           <h4 className="author-card-name">
-            <a href="#">
-              {post.author.fname} {post.author.lname}
-            </a>
+            <a href="#">{post.author.name}</a>
           </h4>
           <p>{post.author.bio}</p>
         </section>

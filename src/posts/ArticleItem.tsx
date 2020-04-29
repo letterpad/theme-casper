@@ -38,12 +38,10 @@ class ArticleItem extends Component<IArticleItem> {
             <div>
               <img
                 className="author-profile-image"
-                src={post.author.avatar}
+                src={post.author.avatar || ""}
                 alt="Author"
               />
-              <span className="post-card-author">
-                {post.author.fname} {post.author.lname}
-              </span>
+              <span className="post-card-author">{post.author.name}</span>
             </div>
             <div>
               <span>
